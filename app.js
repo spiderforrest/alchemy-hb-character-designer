@@ -43,27 +43,27 @@ bottomDropdown.addEventListener('change', () => {
     // increment the bottom change count state
     bottomChanges++;
     // update the dom for the bottom (use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
-    bottomEl.style.backgroundImage = `url("./assets/${value}-bottom.png")`;
+    bottomEl.style.backgroundImage = `url("./assets/${value}-pants.png")`;
     // update the stats to show the new count (call displayStats() to do this work)
     displayStats();
 });
 
 catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
-    const catchphraseInput = catchphraseInput.value;
-    // check if input is empty
-    if (catchphraseInput === '') return;
+    const newInputCatchphrase = catchphraseInput.value;
+    // check if input is empty and stop
+    if (newInputCatchphrase === '') return;
     // push the new catchphrase to the catchphrase array in state
-    catchphraseArray.push(catchphraseInput);
+    catchphraseArray.push(newInputCatchphrase);
     // clear out the form input's value so it's empty to the user
-    catchphraseInput.value = '';
+    newInputCatchphrase.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
     displayCatchphrases();
 });
 
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
-    // hold the catchphrase string
+    // hold the catchphrase string, default to none.
     let catchphraseString = '';
     // generate the string
     const changesString = `You have changed the head ${headChanges} times, the body ${middleChanges} times, and the pants ${bottomChanges} times.`;
@@ -78,9 +78,9 @@ function displayStats() {
 }
 
 function displayCatchphrases() {
-    // clear out the DOM for the currently displayed catchphrases
     // loop through each catchphrase in state
     // and for each catchphrase
     // create an HTML element with the catchphrase as its text content
     // and append that HTML element to the cleared-out DOM
+    // clear out the DOM for the currently displayed catchphrases
 }
